@@ -3,13 +3,13 @@ import Chef from './Chef'
 
 class Chefs extends Component {
     render() {
+        const chefs = this.props.chefs
+        console.log(chefs)
         return (
-            <div>
-                <Chef/>
-                <Chef/>
-                <Chef/>
-                <Chef/>
+            <div class="ui link centered cards">
+                {chefs.map( chef => <Chef key={chef.id} chef={chef}/>)}
             </div>
+
         );
     }
 }

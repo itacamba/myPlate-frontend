@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+#chef-img{
+  margin-top: -50px;
+  margin-left: 55px;
+}
+.center-name{
+  text-align: center;
+  padding-top: 15px;
+}
+.center-about{
+  text-align: center;
+  padding-top: 7px;
+}
