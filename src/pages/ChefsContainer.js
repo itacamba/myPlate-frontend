@@ -7,7 +7,8 @@ class ChefsContainer extends Component {
     constructor () {
         super()
         this.state = {
-            chefs: []
+            chefs: [],
+            searchInp: ""
         }
     }
 
@@ -20,12 +21,31 @@ class ChefsContainer extends Component {
             })
         })
     }
+   //----- Search Feature ----//
+    handleOnChangeSearch = (e) => {
+        this.setState({
+            searchInp: e.target.value
+        })
+        this.filterSearch()
+    }
+    
+    filterSearch = () => {
+        let filtered = this.state.chefs.filter( chef => chef.name.toLowerCase().includes(this.state.searchInp.toLowerCase()))
+        return filtered
+    }
+
+    handleChangeDropdown = (e) => {
+        console.log("cuisine is: ", this.state.chefs[0])
+        // function not finished, maybe should be used for searching recipes
+    }
+
+    //----- Search Feature ----//
     render() {
         return (
             <div>
                 <Slogan/>
-                <SearchAndFilter/>
-                <Chefs chefs={this.state.chefs}/>
+                <SearchAndFilter handleOnChangeSearch={this.handleOnChangeSearch} handleChangeDropdown={this.handleChangeDropdown}/>
+                <Chefs  chefs={this.filterSearch()}/>
             </div>
         );
     }

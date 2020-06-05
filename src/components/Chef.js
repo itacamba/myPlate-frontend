@@ -5,15 +5,16 @@ class Chef extends Component {
      
         let {name, img, about} = this.props.chef
         let dishes = this.props.chef.dishes
+    
         return (
-                    <div class="card">
-                        <div class="image">
-                            {<img src={dishes[0].img} alt="dish_image" />}
+                    <div id="chef-card" className="card">
+                        <div className="image">
+                            {this.props.chef.dishes.length > 0 ? <img alt="recipe" src={dishes[0].img}/> : <img alt="recipe" src="https://cdn2.iconfinder.com/data/icons/food-restaurant-1/128/flat-15-512.png"/> }
                         </div>
-                        <div class="content">
-                            <img id="chef-img" class="ui small circular image" src={img} alt="chef_image"/>
-                            <div class="header center-name">{name}</div>
-                            <div class="description center-about">{about}</div>
+                        <div className="content">
+                            <img id="chef-img" className="ui small circular image" src={img} alt="chef_image"/>
+                            <div className="header center-name">{name}</div>
+                            <div className="description center-about">{about}</div>
                         </div>                
                     </div>
         );
