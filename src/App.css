@@ -52,6 +52,10 @@
   text-align: center;
   padding-top: 1%;
 }
+#chef-btn{
+  margin-top: 7%;
+  margin-left: 25%;
+}
 /*--- END CHEF CARD STYLE ---*/
 /*--- CHEF SEARCH  ---*/
 #chef-search{
@@ -64,7 +68,7 @@
   color:rgba(165, 15, 15, 0.657);
 }
 /*--- END CHEF NOT FOUND ---*/
-
+/*--- SELECT CUISINE ----*/
 #select-chef{
   background:
     linear-gradient(45deg, transparent 50%,rgb(91, 91, 92) 50%),
@@ -93,3 +97,5 @@
   -webkit-appearance:none;
   -moz-appearance:none;
 }
+
+/*--- END SELECT CUISINE ----*/

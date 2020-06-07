@@ -20,8 +20,8 @@ class SearchAndFilter extends Component {
                     <div className="results"></div>
                 </form>
                 {/* <Dropdown clearable selection placeholder="Cuisines" onChange={this.handleChange} options={options} /> */}
-                <select  id="select-chef" class="ui selection dropdown " onChange={this.props.handleChangeDropdown}>
-                    <option selected disabled hidden>Choose Cuisine</option>
+                <select  id="select-chef" className="ui selection dropdown " >
+                    <option disabled selected hidden >Choose Cuisine</option>
                     <option value="all">all</option>
                     <option value="african">African</option>
                     <option value="american">American</option>

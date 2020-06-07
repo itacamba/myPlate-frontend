@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ProfileOuter extends Component {
-    render() {
-        return (
-            <div>
-                Profile Outer
-            </div>
-        );
-    }
+const ProfileOuter = ({chef}) => {
+    return chef ?
+        <div>
+            OUTER PROFILE COMPONENT SHOWING  {chef.name}
+        </div>
+    : <div className="not-found">Sorry Chef not Found :(</div>
 }
 
 export default ProfileOuter;

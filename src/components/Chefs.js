@@ -6,8 +6,10 @@ class Chefs extends Component {
         const chefs = this.props.chefs
         return (
             
-            <div className="ui link centered cards">
-                {this.props.chefs.length > 0? chefs.map( chef => <Chef key={chef.id} chef={chef}/>) :  <div className="not-found">Results Not Found</div> }
+            <div className="ui centered cards">
+                {this.props.chefs.length > 0? 
+                chefs.map( chef => <Chef key={chef.id} chef={chef}/>) 
+                :  <div className="not-found">Results Not Found</div> }
             </div>
 
         );
