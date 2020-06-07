@@ -63,11 +63,15 @@
 }
 /*--- END CHEF SEARCH  ---*/
 
+
+
 /*--- CHEF NOT FOUND ---*/
 .not-found{
   color:rgba(165, 15, 15, 0.657);
 }
 /*--- END CHEF NOT FOUND ---*/
+
+
 /*--- SELECT CUISINE ----*/
 #select-chef{
   background:
@@ -99,3 +103,20 @@
 }
 
 /*--- END SELECT CUISINE ----*/
+
+
+/*--- PROFILE OUTER  ----*/
+#cover-profile-img{
+  z-index: -1;
+}
+.responsive-img {
+  width: 100%;
+  height: auto;
+ 
+}
+#profile-rounded-img{
+  margin-top: -55%;
+  margin-left: 25%;
+  border: 5px solid white;
+}
+/*--- END PROFILE OUTER  ----*/

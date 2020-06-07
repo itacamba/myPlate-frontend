@@ -51,7 +51,7 @@ filterSearch = () => {
 
   render(){
     return (
-      <Router>
+      <Router >
           {/* <nav className ="ui teal inverted menu">
             <Link className="item" to="/">Home</Link><br></br>
             <Link className="item" to="/chefs">Find a Chef</Link><br></br>
