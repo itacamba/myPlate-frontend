@@ -48,18 +48,14 @@ filterSearch = () => {
 }
 //----- Search Feature ----//
 
+//----- On Dish Click ----//
+onDishClick = (dishId) => {
+  console.log("I was clicked", dishId)
+}
 
   render(){
     return (
       <Router >
-          {/* <nav className ="ui teal inverted menu">
-            <Link className="item" to="/">Home</Link><br></br>
-            <Link className="item" to="/chefs">Find a Chef</Link><br></br>
-            <Link className="item" to="/cuisines">Cuisines</Link><br></br>
-            <Link className="item" to="/about">About</Link><br></br>
-            <Link className="item" to="/login" >Log In</Link><br></br>
-            <Link className="item" to="/profile">Profile</Link><br></br>
-          </nav> */}
           <Nav user={this.state.user}/>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -82,7 +78,7 @@ filterSearch = () => {
                 let id = props.match.params.id
                 let chef = this.state.chefs.find( c => c.id == id)
                 console.log("what is my chef: ", chef)
-                return <ProfileOuter chef={chef}/>
+                return <ProfileOuter chef={chef} onDishClick={this.onDishClick}/>
               }
             }/>
           </Switch>

@@ -106,17 +106,66 @@
 
 
 /*--- PROFILE OUTER  ----*/
-#cover-profile-img{
+.send-to-back{
   z-index: -1;
 }
-.responsive-img {
-  width: 100%;
-  height: auto;
- 
-}
-#profile-rounded-img{
-  margin-top: -55%;
-  margin-left: 25%;
-  border: 5px solid white;
-}
+  /*- profile img -*/
+  #profile-round-img{
+    margin-top: -12%;
+    margin-left: 5%;
+  }
+  #profile-round-img img{
+    border: 5px solid white;
+  }
+  /*- end profile img -*/
+  /*- profile name and professional -*/
+
+  #name-and-about{
+    width: 30%;
+    margin: 0 auto;
+    margin-left: 5%;
+
+  }
+  #chef-name{
+    margin: 0 auto;
+  }
+  #chef-name h2{
+    font-size: 3vw;
+  }
+  #chef-about{
+    margin: 0 auto;
+    font-size: 1.5em;
+    color: rgb(83, 83, 83);
+  
+  }
+  #chef-about h2{
+    font-size: 2vw;
+  }
+  /*- selected dish --*/
+  #selected-dish-container{
+    margin-top: 50px;
+  }
+  #selected-dish{
+    display: flex;
+    justify-content: space-between;
+  }
+  #dish-img{
+    width: 45%;
+  }
+  #dish-info{
+    width: 50%;
+  }
+  #dish-cuisine{
+    margin-top: -5%;
+    text-transform: uppercase;
+  }
+    /*- all dishes -*/
+    #all-dishes{
+      margin-top: 5%;
+      
+    }
+    #all-dishes div h3{
+      margin-top: 1%;
+      font-size: 2vw;
+    }
 /*--- END PROFILE OUTER  ----*/
