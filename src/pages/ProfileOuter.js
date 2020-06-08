@@ -4,12 +4,14 @@ import ProfileRoundPhoto from '../components/ProfileRoundPhoto'
 import UserNameAndPro from '../components/UserNameAndPro'
 import SelectedDish from '../components/SelectedDish'
 import AllDishes from '../components/AllDishes'
+import FormDishQuote from '../components/FormDishQuote'
 
 class ProfileOuter extends Component {
     constructor(){
         super()
         this.state = {
-            selectedDish: null
+            selectedDish: null,
+            getQuoteClicked: false
         }
     }
 
@@ -18,6 +20,15 @@ class ProfileOuter extends Component {
             selectedDish: dish
         })
     }
+
+    onGetQuoteClick = (id) => {
+        console.log("clicked", id)
+        this.setState({
+            getQuoteClicked: !this.state.getQuoteClicked
+        })
+    }
+
+
     render() {
         let {chef} = this.props
         return chef? 
@@ -26,8 +37,10 @@ class ProfileOuter extends Component {
                 <CoverPhoto img={chef.cover_img}/>
                 <ProfileRoundPhoto img={chef.img}/>
                 <UserNameAndPro name={chef.name}/>
-                {this.state.selectedDish === null ?  null : <SelectedDish dish={this.state.selectedDish}/> }
+                {this.state.selectedDish === null ?  null : <SelectedDish dish={this.state.selectedDish} onGetQuoteClick={this.onGetQuoteClick}/> }
+                {this.state.getQuoteClicked ? <FormDishQuote dish={this.state.selectedDish}/> : null}
                 <AllDishes dishes={chef.dishes} onDishClick={this.onDishClick}/>
+                
             </div>
 
 

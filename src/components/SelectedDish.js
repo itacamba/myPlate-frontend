@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SelectedDish = ({dish}) => {
+const SelectedDish = ({dish, onGetQuoteClick}) => {
     return dish ?
         <div id="selected-dish-container" className="row">
             <div  class="ten wide column centered">
@@ -12,7 +12,7 @@ const SelectedDish = ({dish}) => {
                         <h1 className="header">{dish.name}</h1>
                         <h3 id="dish-cuisine"className="ui disabled small header">{dish.cuisine}</h3>
                         <p>{dish.description}</p>
-                        <button className="ui large teal button">Get a Quote</button>
+                        <button onClick={() => onGetQuoteClick(dish.id)} className="ui large teal button">Get a Quote</button>
                     </div>
                 </div> 
             </div>
