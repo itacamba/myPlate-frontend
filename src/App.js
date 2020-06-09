@@ -19,7 +19,7 @@ class App extends React.Component {
   constructor () {
     super()
     this.state = {
-      user: {id: 2, name: "Lola", email: "lola@mail.com", password_digest: "pass", about: "I am a human being" },
+      user: {id: 8, name: "Lola", email: "lola@mail.com", password_digest: "pass", about: "I am a human being" },
       searchInp: "",
       chefs: []
     }
@@ -76,7 +76,7 @@ onDishClick = (dishId) => {
             <Route exact path={"/chefs/:id"} render={
               (props) => {
                 let id = props.match.params.id
-                let chef = this.state.chefs.find( c => c.id == id)
+                let chef = this.state.chefs.find( c => c.id === parseInt(id))
                 console.log("what is my chef: ", chef)
                 return <ProfileOuter chef={chef} user={this.state.user}/>
               }

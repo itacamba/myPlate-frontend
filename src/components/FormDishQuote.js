@@ -2,7 +2,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import React, { Component } from 'react';
 import SelectDropdown from './SelectDropdown'
+import {toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 class FormDishQuote extends Component {
 
     constructor(){
@@ -25,24 +28,38 @@ class FormDishQuote extends Component {
             partySize: value
         })
     }
+
+    getMonthFromString = (mon) => {
+        return new Date(Date.parse(mon +" 1, 2012")).getMonth()+1
+     }
+
     handleSubmit = (e) => {
         e.preventDefault()
+        let date = this.state.startDate.toString().split(' ').splice(1, 4)
+        let month = this.getMonthFromString(date[0])
+        // logic to parse the date
         const event = {
             ocassion: e.target.querySelector('input[name="event"]').value,
             party_size: this.state.partySize,
-            date: this.state.startDate,
+            date: [month,date[1],date[2]],
             dish_id: this.props.dish.id,
             chef_id: this.props.chefId,
-            customer_id: this.props.user .id
+            customer_id: this.props.user.id
         }
-        console.log(event)
         // this function triggers the function in ProfileOuter.js so we can hide the form
         this.props.onGetQuoteClick()
         // show success message
-        this.props.successMessage()
+        toast("Your Request Has Been Sent")
+        // Fetch Post to create new event
+        fetch("http://localhost:3000/events", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(event)
+        })
+        .then(resp => resp.json())
+        .then(data => console.log(data))
     }
-
-
+   
     render() {
         let {dish} = this.props
         return dish?
@@ -67,7 +84,7 @@ class FormDishQuote extends Component {
                     <DatePicker 
                         selected={this.state.startDate}
                         onChange={this.handleChange}
-                        minDate={new Date()}
+                        minDate={new Date()}    
                     />
                 </div>
                 <button class="ui button" type="submit" >Submit</button>
