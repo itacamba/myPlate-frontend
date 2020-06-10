@@ -42,7 +42,7 @@ class FormDishQuote extends Component {
             ocassion: e.target.querySelector('input[name="event"]').value,
             party_size: this.state.partySize,
             date: [month,date[1],date[2]],
-            dish_id: this.props.dish.id,
+            dish_name: this.props.dish.name,
             chef_id: this.props.chefId,
             customer_id: this.props.user.id
         }
@@ -87,7 +87,7 @@ class FormDishQuote extends Component {
                         minDate={new Date()}    
                     />
                 </div>
-                <button class="ui button" type="submit" >Submit</button>
+                <button className="ui button" type="submit" >Submit</button>
             </form>
             </div>
             </div>

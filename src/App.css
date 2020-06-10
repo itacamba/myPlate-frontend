@@ -169,3 +169,11 @@
       font-size: 2vw;
     }
 /*--- END PROFILE OUTER  ----*/
+/*--- PROFILE INNER ---*/
+#left-menu-and-right-container{
+  margin-top: 10%;
+}
+#rigth-cont{
+  height: 100%;
+}
+/*--- PROFILE INNER ---*/
