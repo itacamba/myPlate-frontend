@@ -34,7 +34,7 @@ class ChefInnerProfile extends Component {
                 <CoverPhoto img={user.cover_img} />
                 <ProfileRoundPhoto img={user.img}/>
                 <UserNameAndPro user={user}/>
-                <ChefDashboard/>
+                <ChefDashboard events={this.state.userEvents}/>
                 <EventsTable events={this.state.userEvents}/>
             </div>
         );

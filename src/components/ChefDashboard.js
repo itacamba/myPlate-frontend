@@ -6,48 +6,34 @@ class ChefDashboard extends Component {
     constructor() {
         super();
         this.state = {
-          name: "React",
-          showHideDemo1: false,
-          showHideDemo2: false,
-          showHideDemo3: false
+          currentSection: 'myDishes'
         }
       }
 
-      hideComponent = (name) =>  {
-        console.log(name);
-        switch (name) {
-          case "showHideDemo1":
-            this.setState({ showHideDemo1: !this.state.showHideDemo1 });
-            break;
-          case "showHideDemo2":
-            this.setState({ showHideDemo2: !this.state.showHideDemo2 });
-            break;
-          case "showHideDemo3":
-            this.setState({ showHideDemo3: !this.state.showHideDemo3 });
-            break;
-        }
-      }
 
-    onEventsClick = () => {
-        console.log("Events clicked")
+    setCurrentSection = (section) => {
+        this.setState({
+          currentSection: section
+        })
     }
     render() {
-        const { showHideDemo1, showHideDemo2, showHideDemo3 } = this.state;
+        
         return (
             <div id="tab" >
                 <div id="left-side">
-                    <div onClick={() => this.hideComponent("showHideDemo1")}>My Dishes</div>
-                    <div onClick={() => this.hideComponent("showHideDemo2")}>Event Requests</div>
-                    <div onClick={() => this.hideComponent("showHideDemo3")}>Syllabus</div>
+                    <div onClick={()=> this.setCurrentSection('myDishes')}>My Dishes</div>
+                    <div onClick={()=> this.setCurrentSection('eventRequests')}>Event Requests</div>
+                    <div onClick={()=> this.setCurrentSection('syllabus')}>Syllabus</div>
                 </div>
                 <div id="right-side">
                     <div id="list">
+                        
                         {/* <DishesTable/> */}
-                        {showHideDemo1 && <DishesTable />}
+                        {this.state.currentSection === 'myDishes'? <DishesTable /> : null}
                         <hr />
-                        {showHideDemo2 && <EventsTable />}
+                        {this.state.currentSection === 'eventRequests'? <EventsTable events={this.props.events}/> : null}
                         <hr />
-                        {showHideDemo3 && <DishesTable />}
+                        {this.state.currentSection === 'syllabus'? <DishesTable /> : null}
                         <hr />
                     </div>
                 </div>
