@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import DishModal from './DishModal';
+
 
 class DishesRow extends Component {
+
     render() {
-        let {id,img, name,cuisine,about} = this.props.dish
+        let {img, name,cuisine} = this.props.dish
         return (
             <tr>
                 <td data-label="Image">
@@ -13,11 +16,12 @@ class DishesRow extends Component {
                 <td data-label="Name">{name}</td>
                 <td data-label="Cuisine">{cuisine}</td>
                 <td data-label="Detail">
-                    <button className="ui blue button">Details</button>
+                    <DishModal dish={this.props.dish}/>
                 </td>
                 <td data-label="Delete">
                     <button className="ui red button right">Delete</button>
                 </td>
+                
             </tr>
         );
     }
