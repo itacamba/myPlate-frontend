@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CameraIcon from './CameraIcon';
 
 class ProfileRoundPhoto extends Component {
     constructor(){

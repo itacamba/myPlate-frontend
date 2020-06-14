@@ -5,8 +5,6 @@ import UserNameAndPro from '../components/UserNameAndPro'
 import LeftMenu from '../components/LeftMenu'
 import RightContainer from '../components/RightContainer'
 import EventDetails from '../components/EventDetails'
-import CameraIcon from '../components/CameraIcon';
-
 class ProfileInner extends Component {
     constructor(){
         super()

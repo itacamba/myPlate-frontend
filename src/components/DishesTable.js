@@ -3,8 +3,12 @@ import DishesRow from './DishesRow';
 
 class DishesTable extends Component {
     render() {
+        let {dishes} = this.props
         return (
-            <table class="ui table">
+            <div>
+                <h1>All my Dishes</h1>
+                <table class="ui table">
+                
                         <thead>
                             <tr>
                                 <th>Image</th>
@@ -16,11 +20,11 @@ class DishesTable extends Component {
                         </thead>
                         <tbody>
                            {/* map to display rows */}  
-                            <DishesRow/>
-                            <DishesRow/>
-                            <DishesRow/>
+                           {dishes.map( d => <DishesRow key={d.id} dish={d}/>)}
                         </tbody>
                     </table>
+            </div>
+            
         );
     }
 }

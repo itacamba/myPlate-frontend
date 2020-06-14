@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import CoverPhoto from '../components/CoverPhoto'
 import ProfileRoundPhoto from '../components/ProfileRoundPhoto'
 import UserNameAndPro from '../components/UserNameAndPro'
-import EventsTable from '../components/EventsTable'
 import ChefDashboard from '../components/ChefDashboard';
-// import LeftMenu from '../components/LeftMenu';
+//import LeftMenu from '../components/LeftMenu';
 //import RightContainer from '../components/RightContainer'
 //import EventDetails from '../components/EventDetails'
 
@@ -13,16 +12,24 @@ class ChefInnerProfile extends Component {
     constructor(){
         super()
         this.state = {
-            userEvents: []
+            userEvents: [],
+            dishes: []
         }
     }
     componentDidMount(){
+        // Fetch User Events
         let userId = this.props.user.id
         console.log()
         fetch(`http://localhost:3000/chef-events/${userId}`)
         .then(resp => resp.json())
         .then(data => this.setState({
             userEvents: data
+        }))
+        // Fetch Chefs Dishes
+        fetch(`http://localhost:3000/chef-dishes/${userId}`)
+        .then(resp => resp.json())
+        .then(data => this.setState({
+            dishes: data
         }))
     }
     
@@ -34,8 +41,7 @@ class ChefInnerProfile extends Component {
                 <CoverPhoto img={user.cover_img} />
                 <ProfileRoundPhoto img={user.img}/>
                 <UserNameAndPro user={user}/>
-                <ChefDashboard events={this.state.userEvents}/>
-                <EventsTable events={this.state.userEvents}/>
+                <ChefDashboard events={this.state.userEvents} dishes={this.state.dishes}/>
             </div>
         );
     }

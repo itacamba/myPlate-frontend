@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
-import EventsRow from './EventsRow'
+import EventRow from './EventRow'
 
-class EventsTable extends Component {
+class ChefEventsTable extends Component {
     render() {
+        let {events} = this.props
         return (
-            <div className="twelve wide centered column">
-            <h1 className="header">Event Requests</h1>
-            <table className="ui definition table">
-                <tbody>
-                    {this.props.events.map(e => <EventsRow key={e.id} event={e}/>)}   
-                </tbody>
-            </table>
+            <div>
+                <h1>All my Events</h1>
+                <table class="ui table">
+                
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>Host</th>
+                                <th>Date</th>
+                                <th>Options</th>
+                                <th>Details</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                           {/* map to display rows */}  
+                           {events.map( e => <EventRow key={e.id} event={e}/>)}
+                        </tbody>
+                    </table>
             </div>
         );
     }
 }
 
-export default EventsTable;
+export default ChefEventsTable;
