@@ -5,7 +5,7 @@ class EventsRow extends Component {
     constructor(){
         super()
         this.state = {
-            btnClicked: false
+            alreadyClicked: null,
         }
     }
 
@@ -14,7 +14,18 @@ class EventsRow extends Component {
         fetch(`http://localhost:3000/events/${event.id}`)
         .then(resp => resp.json())
         .then(data => {
-            this.setState({btnClicked: data.isApproved})
+            if (data.isApproved !== null){
+                this.setState({
+                    alreadyClicked: true
+                })
+            }
+            console.log("event is: ", data)
+            // if(data.isApproved){
+            //     this.setState({accepted: true})
+            // } else {
+            //     this.setState({denied: true})
+            // }
+            // this.setState({btnClicked: data.isApproved})
         })
     }
 
@@ -33,7 +44,8 @@ class EventsRow extends Component {
         .then(resp => resp.json())
         .then(data => {
             console.log("been accepted: ", data)
-            this.setState({btnClicked: true})
+                 this.setState({alreadyClicked: true})
+           
         })
 
     }
@@ -51,7 +63,7 @@ class EventsRow extends Component {
         .then(resp => resp.json())
         .then(data => {
             console.log("been denied: ", data)
-            this.setState({btnClicked: true})
+                this.setState({alreadyClicked: true})
         })
     }
     render() {
@@ -61,8 +73,8 @@ class EventsRow extends Component {
                 <td class="four wide column">{event.ocassion}</td>
                 <td>
                     {event.customer.name} | {event.date} | {event.dish_name}
-                    <button className={this.state.btnClicked? "ui right floated disabled button": "ui right floated red button"} onClick={this.handleDecline}>Decline</button>
-                    <button className={this.state.btnClicked? "ui right floated disabled button": "ui right floated green button"} onClick={this.handleAccept}>Accept</button>
+                    <button className={this.state.alreadyClicked? "ui right floated disabled button": "ui right floated red button"} onClick={this.handleDecline}>Decline</button>
+                    <button className={this.state.alreadyClicked? "ui right floated disabled button": "ui right floated green button"} onClick={this.handleAccept}>Accept</button>
                 </td>
             </tr>
         );

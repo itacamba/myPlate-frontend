@@ -3,6 +3,7 @@ import CoverPhoto from '../components/CoverPhoto'
 import ProfileRoundPhoto from '../components/ProfileRoundPhoto'
 import UserNameAndPro from '../components/UserNameAndPro'
 import EventsTable from '../components/EventsTable'
+import ChefDashboard from '../components/ChefDashboard';
 // import LeftMenu from '../components/LeftMenu';
 //import RightContainer from '../components/RightContainer'
 //import EventDetails from '../components/EventDetails'
@@ -24,7 +25,7 @@ class ChefInnerProfile extends Component {
             userEvents: data
         }))
     }
-
+    
     render() {
 
         const {user} = this.props
@@ -33,6 +34,7 @@ class ChefInnerProfile extends Component {
                 <CoverPhoto img={user.cover_img} />
                 <ProfileRoundPhoto img={user.img}/>
                 <UserNameAndPro user={user}/>
+                <ChefDashboard/>
                 <EventsTable events={this.state.userEvents}/>
             </div>
         );

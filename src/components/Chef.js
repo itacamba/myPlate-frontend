@@ -26,7 +26,7 @@ class Chef extends Component {
                             <div className="header center-name">{name}</div>
                             <div className="description center-about">{about}</div>
 
-                            <Link to={`/chefs/${id}`}><button id="chef-btn" className="ui blue button">See Profile</button></Link>
+                            <Link to={`/chefs/${id}`}><button id="chef-btn" className="ui red button">See Profile</button></Link>
                         
                         </div>               
                     </div>

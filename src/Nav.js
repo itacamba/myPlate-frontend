@@ -3,8 +3,11 @@ import {Link} from 'react-router-dom'
 
 const Nav = ({user}) => {
     return (
-        <div>
-            <nav className ="ui fluid teal inverted menu">
+        <div id="nav-container">
+            <div id="logo">
+                <Link to="/"><h1>MyChef</h1></Link>
+            </div>
+            <nav className ="">
                 <Link className="item" to="/">Home</Link><br></br>
                 <Link className="item" to="/chefs">Find a Chef</Link><br></br>
                 <Link className="item" to="/cuisines">Cuisines</Link><br></br>

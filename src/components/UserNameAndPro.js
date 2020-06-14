@@ -8,7 +8,6 @@ const UserNameAndPro = ({user}) => {
             </div>
             <div id="chef-about">
                 {user.is_chef? <h2>Professional Chef</h2> : <h2>Loyal Customer</h2> }
-                
             </div>
         </div>
     );

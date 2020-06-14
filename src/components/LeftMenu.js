@@ -39,17 +39,17 @@ class LeftMenu extends Component {
         return (
             <div  className="four wide column">
                 <div class="ui vertical menu">
-                    <div href="#" className={this.state.clicked? 'active teal item': 'item'} onClick={this.handleClick}>
+                    <div href="#" className={this.state.clicked? 'active red item': 'item'} onClick={this.handleClick}>
                         Requests
-                        <div className={this.state.clicked? 'ui teal left pointing label': 'ui gray label'}>1</div>
+                        <div className={this.state.clicked? 'ui red left pointing label': 'ui gray label'}>{this.props.eventsQty}</div>
                     </div>
-                    <div href="#" className={this.state.second? 'active teal item' : "item"} onClick={this.handleSecondClick} >
+                    <div href="#" className={this.state.second? 'active red item' : "item"} onClick={this.handleSecondClick} >
                         Spam
-                        <div className={this.state.second? 'ui teal left pointing label': 'ui gray label'}>51</div>
+                        <div className={this.state.second? 'ui red left pointing label': 'ui gray label'}>51</div>
                     </div>
-                    <div href="#" className={this.state.third? 'active teal item' : 'item'} onClick={this.handleThirdClick}>
+                    <div href="#" className={this.state.third? 'active red item' : 'item'} onClick={this.handleThirdClick}>
                         Updates
-                        <div className={this.state.third? 'ui teal left pointing label': 'ui gray label'}>1</div>
+                        <div className={this.state.third? 'ui red left pointing label': 'ui gray label'}>1</div>
                     </div>
                     <div class="item">
                         <div class="ui transparent icon input">
