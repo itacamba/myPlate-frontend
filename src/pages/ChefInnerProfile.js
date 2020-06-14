@@ -32,6 +32,17 @@ class ChefInnerProfile extends Component {
             dishes: data
         }))
     }
+
+    onDishDelete = (id) => {
+        console.log("I was clicked", id)
+        fetch(`http://localhost:3000/dishes/${id}`, {
+            method: "DELETE"
+        })
+        let filtered = this.state.dishes.filter(d => d.id !== id)
+        this.setState({
+            dishes: filtered
+        })
+    }
     
     render() {
 
@@ -41,7 +52,7 @@ class ChefInnerProfile extends Component {
                 <CoverPhoto img={user.cover_img} />
                 <ProfileRoundPhoto img={user.img}/>
                 <UserNameAndPro user={user}/>
-                <ChefDashboard events={this.state.userEvents} dishes={this.state.dishes}/>
+                <ChefDashboard events={this.state.userEvents} dishes={this.state.dishes} onDishDelete={this.onDishDelete}/>
             </div>
         );
     }

@@ -20,9 +20,9 @@ class App extends React.Component {
   constructor () {
     super()
     this.state = {
-      user: {id:5, name: "Beza Sirak", email: "beza@mail.com", password_digest: "pass", about: "I make a killer Kitfo", is_chef: true,  img: "https://ca.slack-edge.com/T02MD9XTF-URUT7DR3P-ecbb7719005a-512",cover_img: "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"},
+      //user: {id:5, name: "Beza Sirak", email: "beza@mail.com", password_digest: "pass", about: "I make a killer Kitfo", is_chef: true,  img: "https://ca.slack-edge.com/T02MD9XTF-URUT7DR3P-ecbb7719005a-512",cover_img: "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"},
       //user: {id: 1, name: "Lola", email: "lola@mail.com", password_digest: "pass", about: "I am a human being", is_chef: false,  img: "https://voxpopulii.in/system/static/dashboard/img/default_user.png", cover_img: "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"},
-      //user: {id: 3, name: "Dave Molina", email: "dave@mail.com", password_digest: "pass", about: "I am a human being", is_chef: true,  img: "https://voxpopulii.in/system/static/dashboard/img/default_user.png", cover_img: "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"},
+      user: {id: 3, name: "Dave Molina", email: "dave@mail.com", password_digest: "pass", about: "I am a human being", is_chef: true,  img: "https://voxpopulii.in/system/static/dashboard/img/default_user.png", cover_img: "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"},
       searchInp: "",
       chefs: []
     }

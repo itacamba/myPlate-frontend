@@ -6,7 +6,7 @@ class ChefDashboard extends Component {
     constructor() {
         super();
         this.state = {
-          currentSection: 'myDishes'
+          currentSection: 'myDishes',
         }
       }
 
@@ -29,7 +29,7 @@ class ChefDashboard extends Component {
                     <div id="list">
                         
                         {/* <DishesTable/> */}
-                        {this.state.currentSection === 'myDishes'? <DishesTable dishes={dishes} /> : null}
+                        {this.state.currentSection === 'myDishes'? <DishesTable dishes={dishes} onDishDelete={this.props.onDishDelete}/> : null}
                         {/* <EventsTable /> */}
                         {this.state.currentSection === 'eventRequests'? <EventsTable events={events}/> : null}
                         {/* <EventsTable /> */}

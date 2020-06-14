@@ -71,10 +71,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 
-### When a Chef from 'Find a Chef' is clicked
-- App.js holds 'selectedChef' initial state as null
-- App.js holds handleSelectedChef callback that receives an id from the chef that has been clicked.
-- App > ChefsContainer > Chefs > Chef
-- Chef.js holds a handleClick callback that redirects the click to a new route in the browser, and then uses the this.props.handleSelectedChef to sendback an id.
-- Chef.js returns an id than makes a fetch call to get all chefs from the server, and then sets the state for the selectedChef.
-- 
+### ChefInnerPRofile
+    - Delete a dish from dashboard (onDeleteDish(id))
+        - Travels from  ChefInnerProfile > ChefDashboard > DishesTable > DishesRow 

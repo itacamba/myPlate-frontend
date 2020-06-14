@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import DishesRow from './DishesRow';
 
 class DishesTable extends Component {
+
+    
+   
     render() {
-        let {dishes} = this.props
+        let {dishes, onDishDelete} = this.props
         return (
             <div>
                 <h1>All my Dishes</h1>
@@ -20,7 +23,7 @@ class DishesTable extends Component {
                         </thead>
                         <tbody>
                            {/* map to display rows */}  
-                           {dishes.map( d => <DishesRow key={d.id} dish={d}/>)}
+                           {dishes.map( d => <DishesRow key={d.id} dish={d} onDishDelete={onDishDelete}/>)}
                         </tbody>
                     </table>
             </div>

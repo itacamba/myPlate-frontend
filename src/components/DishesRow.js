@@ -3,9 +3,10 @@ import DishModal from './DishModal';
 
 
 class DishesRow extends Component {
-
+    
+    
     render() {
-        let {img, name,cuisine} = this.props.dish
+        let {id, img, name,cuisine} = this.props.dish
         return (
             <tr>
                 <td data-label="Image">
@@ -19,7 +20,7 @@ class DishesRow extends Component {
                     <DishModal dish={this.props.dish}/>
                 </td>
                 <td data-label="Delete">
-                    <button className="ui red button right">Delete</button>
+                    <button className="ui red button right" onClick={() => this.props.onDishDelete(id)}>Delete</button>
                 </td>
                 
             </tr>
