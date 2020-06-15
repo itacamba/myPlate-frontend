@@ -5,9 +5,9 @@ class ChefEventsTable extends Component {
     render() {
         let {events} = this.props
         return (
-            <div>
+            <div  id="event-table">
                 <h1>All my Events</h1>
-                <table class="ui table">
+                <table className="ui table">
                 
                         <thead>
                             <tr>

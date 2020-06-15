@@ -1,7 +1,7 @@
 import React from 'react';
-import Dish from '../components/Dish'
+import Dish from './Dish'
 
-const AllDishes = ({dishes, onDishClick}) => {
+const ChefDishes = ({dishes, onDishClick}) => {
     return dishes.length > 0? 
         <div id="all-dishes" className="row">
                 {dishes.map( d => <Dish key={d.id} dish={d} onDishClick={onDishClick}/>)}
@@ -9,4 +9,4 @@ const AllDishes = ({dishes, onDishClick}) => {
     : <div  className="centered row">  This chef currently has no dishes</div>
 };
 
-export default AllDishes;
+export default ChefDishes;

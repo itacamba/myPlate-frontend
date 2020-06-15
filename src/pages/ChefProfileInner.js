@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import CoverPhoto from '../components/CoverPhoto'
-import ProfileRoundPhoto from '../components/ProfileRoundPhoto'
-import UserNameAndPro from '../components/UserNameAndPro'
-import ChefDashboard from '../components/ChefDashboard';
+import CoverPhoto from '../shared/CoverPhoto'
+import ProfileRoundPhoto from '../shared/ProfileRoundPhoto'
+import UserNameAndPro from '../shared/UserNameAndPro'
+import ChefDashboard from '../chef-interface/ChefDashboard';
 //import LeftMenu from '../components/LeftMenu';
 //import RightContainer from '../components/RightContainer'
 //import EventDetails from '../components/EventDetails'

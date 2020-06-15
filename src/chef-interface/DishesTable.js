@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import DishesRow from './DishesRow';
-import EditDishForm from './EditDishForm';
 import CreateDishForm from './CreateDishForm';
 
 class DishesTable extends Component {
-    constructor () {
-        super()
-    }
+
 
     // onCreateDish = () => {
     //     let {user} = this.props
@@ -30,7 +27,7 @@ class DishesTable extends Component {
                     <CreateDishForm user={user}/>
                     {/* <button className="ui green button" onClick={this.onDisplayForm}>Create New Dish +</button> */}
                 </div>
-                <table class="ui table">
+                <table className="ui table">
                 
                         <thead>
                             <tr>

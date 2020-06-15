@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
-class Chef extends Component {
+class ChefCard extends Component {
 
 
 
@@ -35,4 +35,4 @@ class Chef extends Component {
     }
 }
 
-export default Chef;
+export default ChefCard;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EventDetails from './EventDetails';
 
 class EventRow extends Component {
     constructor(){
@@ -71,15 +72,15 @@ class EventRow extends Component {
 
 
     render() {
-        let {ocassion, date, customer} = this.props.event
+        let {ocassion, customer} = this.props.event
         console.log("event is: ", this.props.event )
         return (
             <tr> 
                 {/* STATUS */}
                 <td data-label="Status">
                     {this.state.status === null ? 
-                        <i class="disabled circle icon"></i> : this.state.status? <i class="green circle icon"></i>
-                        : <i class="red circle icon"></i>}
+                        <i className="yellow circle icon"></i> : this.state.status? <i className="green circle icon"></i>
+                        : <i className="red circle icon"></i>}
                 </td>
                 {/* HOST */}
                 <td data-label="Host">{customer.name}</td>
@@ -92,7 +93,7 @@ class EventRow extends Component {
                 </td>
                 {/* DETAILS */}
                 <td data-label="Detail">
-                    <button className="ui blue button">Details</button>
+                    <EventDetails event={this.props.event}/>
                 </td>
                 
             </tr>

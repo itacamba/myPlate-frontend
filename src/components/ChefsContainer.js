@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Chef from './Chef'
+import ChefCard from './ChefCard'
 
 class Chefs extends Component {
     render() {
@@ -9,7 +9,7 @@ class Chefs extends Component {
                 <div className="ten wide column row">
                     <div className="ui centered cards">
                         {this.props.chefs.length > 0? 
-                        chefs.map( chef => <Chef key={chef.id} chef={chef}/>) 
+                        chefs.map( chef => <ChefCard key={chef.id} chef={chef}/>) 
                         :  <div className="not-found">Results Not Found</div> }
                     </div>
                 </div>

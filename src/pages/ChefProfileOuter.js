@@ -1,13 +1,13 @@
 import React,{Component} from 'react';
-import CoverPhoto from '../components/CoverPhoto'
+import CoverPhoto from '../shared/CoverPhoto'
 // import ProfileRoundPhoto from '../components/ProfileRoundPhoto'
-import UserNameAndPro from '../components/UserNameAndPro'
+import UserNameAndPro from '../shared/UserNameAndPro'
 import SelectedDish from '../components/SelectedDish'
-import AllDishes from '../components/AllDishes'
+import ChefDishes from '../components/ChefDishes'
 import FormDishQuote from '../components/FormDishQuote'
-import RoundPhoto from '../components/RoundPhoto';
+import RoundPhoto from '../chef-interface/RoundPhoto';
 
-class ProfileOuter extends Component {
+class ChefProfileOuter extends Component {
     constructor(){
         super()
         this.state = {
@@ -42,7 +42,7 @@ class ProfileOuter extends Component {
                 <UserNameAndPro user={chef}/>
                 {this.state.selectedDish === null ?  null : <SelectedDish dish={this.state.selectedDish} onGetQuoteClick={this.onGetQuoteClick} isClicked={this.state.getQuoteClicked}/> }
                 {this.state.getQuoteClicked ? <FormDishQuote dish={this.state.selectedDish} user={this.props.user} chefId={chef.id}  onGetQuoteClick={this.onGetQuoteClick} successMessage={this.successMessage}/> : null}
-                <AllDishes dishes={chef.dishes} onDishClick={this.onDishClick}/>
+                <ChefDishes dishes={chef.dishes} onDishClick={this.onDishClick}/>
                 
             </div>
 
@@ -53,4 +53,4 @@ class ProfileOuter extends Component {
     }
 }
 
-export default ProfileOuter;
+export default ChefProfileOuter;
