@@ -1,15 +1,35 @@
 import React, { Component } from 'react';
 import DishesRow from './DishesRow';
+import EditDishForm from './EditDishForm';
+import CreateDishForm from './CreateDishForm';
 
 class DishesTable extends Component {
+    constructor () {
+        super()
+    }
 
-    
-   
+    // onCreateDish = () => {
+    //     let {user} = this.props
+    //     let dish = {
+    //         name: ,
+    //         cuisine: ,
+    //         description: ,
+    //         user_id: ,
+    //     }
+    //     fetch()
+
+    // }
+
     render() {
-        let {dishes, onDishDelete} = this.props
+        let {user, dishes, onDishDelete} = this.props
         return (
             <div>
-                <h1>All my Dishes</h1>
+                
+                <div id="title-and-create-a-dish">
+                    <h1>All my Dishes</h1>
+                    <CreateDishForm user={user}/>
+                    {/* <button className="ui green button" onClick={this.onDisplayForm}>Create New Dish +</button> */}
+                </div>
                 <table class="ui table">
                 
                         <thead>

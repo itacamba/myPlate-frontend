@@ -17,7 +17,7 @@ class ChefDashboard extends Component {
         })
     }
     render() {
-        let {dishes, events} = this.props
+        let {user, dishes, events} = this.props
         return (
             <div id="tab" >
                 <div id="left-side">
@@ -29,7 +29,11 @@ class ChefDashboard extends Component {
                     <div id="list">
                         
                         {/* <DishesTable/> */}
-                        {this.state.currentSection === 'myDishes'? <DishesTable dishes={dishes} onDishDelete={this.props.onDishDelete}/> : null}
+                        {this.state.currentSection === 'myDishes'? 
+                            <DishesTable 
+                                user={user}
+                                dishes={dishes} 
+                                onDishDelete={this.props.onDishDelete}/> : null}
                         {/* <EventsTable /> */}
                         {this.state.currentSection === 'eventRequests'? <EventsTable events={events}/> : null}
                         {/* <EventsTable /> */}

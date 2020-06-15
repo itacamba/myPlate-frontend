@@ -239,6 +239,10 @@
     font-size: 2vw;
   }
   /*- selected dish --*/
+  #title-and-create-a-dish{
+    display: flex;
+    justify-content: space-between;
+  }
   #selected-dish-container{
     margin-top: 50px;
   }

@@ -52,7 +52,12 @@ class ChefInnerProfile extends Component {
                 <CoverPhoto img={user.cover_img} />
                 <ProfileRoundPhoto img={user.img}/>
                 <UserNameAndPro user={user}/>
-                <ChefDashboard events={this.state.userEvents} dishes={this.state.dishes} onDishDelete={this.onDishDelete}/>
+                <ChefDashboard 
+                    events={this.state.userEvents} 
+                    dishes={this.state.dishes} 
+                    onDishDelete={this.onDishDelete}
+                    user={user}
+                />
             </div>
         );
     }
