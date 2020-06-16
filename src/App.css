@@ -163,6 +163,17 @@
   padding: 15px;
 }
 /*--- END HOME ---*/
+#slogan{
+  width: 100%;
+  background-color: rgba(223, 221, 255, 0.342);
+  line-height: 180px;
+  height: 200px;
+  text-align: center;
+  font-size: 60px;
+  font-weight: 800;
+  font-family: 'Red Hat Text', sans-serif;
+  color: rgba(136, 159, 175, 0.883)
+}
 /*--- CHEF CARD STYLE ---*/
 #chef-card{
   width: 250px;
