@@ -1,7 +1,7 @@
 import React from 'react';
 import '../src/App.css';
 import Nav from './Nav'
-import About from './pages/About';
+import HowItWorks from './pages/HowItWorks';
 import FindAChef from './pages/FindAChef';
 import Cuisines from './pages/Cuisines';
 import Home from './pages/Home';
@@ -73,7 +73,7 @@ onDishClick = (dishId) => {
               } 
             }/>
             <Route exact path="/cuisines" component={Cuisines} />
-            <Route exact path="/about" component={About} />
+            <Route exact path="/how-it-works" component={HowItWorks} />
             <Route exact path="/login" component={SignUpContainer} />
             <Route exact path="/profile">
                 {this.state.user? 
