@@ -31,8 +31,8 @@ class App extends React.Component {
     }
   }
 
-   //----- Update Current User ----//
-   updateCurrentUser = (currentUser) => {
+  //----- Update Current User ----//
+  updateCurrentUser = (currentUser) => {
     console.log("user is: ", currentUser )
     this.setState({
       user: currentUser
