@@ -524,6 +524,19 @@
 #user-info form{
   width: 100%;
 }
+
+/*--- user reviews ---*/
+#reviews-container{
+  width: 80%;
+  height: 95%;
+  padding-top: 30px;
+  padding-left: 30px;
+  overflow-y: scroll;
+}
+#review-card{
+  width: 90%;
+}
+/*--- user reviews ---*/
 /*----- END USER DASHBOARD --------*/
 
 /*-- Footer ---*/

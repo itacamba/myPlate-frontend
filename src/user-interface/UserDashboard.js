@@ -30,7 +30,7 @@ class UserDashboard extends Component {
                 <div id="dashboard-content">
                     {this.state.currentSection === 'about'? <UserAboutContainer user={user}/> : null}
                     {this.state.currentSection === 'event-requests'? <UserEventsContainer events={events} onCancelEvent={this.props.onCancelEvent}/> : null}
-                    {this.state.currentSection === 'reviews'? <UserReviewsContainer/> : null}
+                    {this.state.currentSection === 'reviews'? <UserReviewsContainer user={user}/> : null}
                 </div>
                 
             </div>
