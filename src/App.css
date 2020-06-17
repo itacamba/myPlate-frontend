@@ -83,6 +83,14 @@
   color: white;
   font-weight: 600;
   font-size: 15px;
+  margin-right: 10px;
+}
+#logout-btn{
+  color: black;
+  font-size: 15px;
+  margin-left: 15px;
+  padding-left: 20px;
+  border-left: 1px solid black;
 }
 /*--- HOME ----*/
 #home-header{
@@ -132,6 +140,7 @@
 #cuisines-container h1{
   margin-top: 30px;
   font-family: 'Yeseva One', cursive;
+  font-weight: 100;
   font-size: 3.5vw;
 }
 #cuisines-cards{

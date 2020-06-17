@@ -22,13 +22,22 @@ class App extends React.Component {
   constructor () {
     super()
     this.state = {
+       user: null,
       //user: {id:5, name: "Beza Sirak", email: "beza@mail.com", password_digest: "pass", about: "I make a killer Kitfo", is_chef: true,  img: "https://ca.slack-edge.com/T02MD9XTF-URUT7DR3P-ecbb7719005a-512",cover_img: "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"},
-      user: {id: 1, name: "Lola", email: "lola@mail.com", password_digest: "pass", about: "I am a human being", is_chef: false,  img: "https://voxpopulii.in/system/static/dashboard/img/default_user.png", cover_img: "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"},
+      //user: {id: 1, name: "Lola", email: "lola@mail.com", password_digest: "pass", about: "I am a human being", is_chef: false,  img: "https://voxpopulii.in/system/static/dashboard/img/default_user.png", cover_img: "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"},
       //user: {id: 3, name: "Dave Molina", email: "dave@mail.com", password_digest: "pass", about: "I am a human being", is_chef: true,  img: "https://voxpopulii.in/system/static/dashboard/img/default_user.png", cover_img: "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"},
       searchInp: "",
       chefs: []
     }
   }
+
+   //----- Update Current User ----//
+   updateCurrentUser = (currentUser) => {
+    console.log("user is: ", currentUser )
+    this.setState({
+      user: currentUser
+    })
+  } 
 
   componentDidMount(){
     fetch("http://localhost:3000/chefs")
@@ -38,30 +47,48 @@ class App extends React.Component {
             chefs: data
         })
     })
-}
-//----- Search Feature ----//
-handleOnChangeSearch = (e) => {
-    this.setState({
-        searchInp: e.target.value
-    })
-    this.filterSearch()
-}
 
-filterSearch = () => {
-    let filtered = this.state.chefs.filter( chef => chef.name.toLowerCase().includes(this.state.searchInp.toLowerCase()))
-    return filtered
-}
-//----- Search Feature ----//
+    // check if there is a current user in localStorage
+    if(localStorage.getItem("token")){
+      console.log("token found")
+      fetch("http://localhost:3000/decode-token", {
+        headers: {"Authenticate": localStorage.token}
+      })
+      .then(resp => resp.json())
+      .then(data => this.updateCurrentUser(data))
+    } else{
+      console.log("no token found")
+    }
+  }
+  //----- Logout ------//
+  handleLogout = () => {
+    console.log("")
+    localStorage.removeItem("token")
+    this.updateCurrentUser(null)
+  }
+  //----- Search Feature ----//
+  handleOnChangeSearch = (e) => {
+      this.setState({
+          searchInp: e.target.value
+      })
+      this.filterSearch()
+  }
 
-//----- On Dish Click ----//
-onDishClick = (dishId) => {
-  console.log("dish was clicked", dishId)
-}
+  filterSearch = () => {
+      let filtered = this.state.chefs.filter( chef => chef.name.toLowerCase().includes(this.state.searchInp.toLowerCase()))
+      return filtered
+  }
+  //----- Search Feature ----//
 
+  //----- On Dish Click ----//
+  onDishClick = (dishId) => {
+    console.log("dish was clicked", dishId)
+  }
+ 
   render(){
     return (
       <Router >
-          <Nav user={this.state.user}/>
+          <Nav user={this.state.user} handleLogout={this.handleLogout}/>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/chefs" render={
@@ -74,7 +101,12 @@ onDishClick = (dishId) => {
             }/>
             <Route exact path="/cuisines" component={Cuisines} />
             <Route exact path="/how-it-works" component={HowItWorks} />
-            <Route exact path="/login" component={SignUpContainer} />
+            <Route exact path="/login" render={() => (
+              this.state.user === null ? <SignUpContainer updateCurrentUser={this.updateCurrentUser} /> : <Redirect to="/profile"/>
+            )}/>
+            {/* <Route exact path="/login" render={() => {
+                return this.state.user === null? <SignUpContainer/> : <Redirect to="/profile"/>
+            }}/> */}
             <Route exact path="/profile">
                 {this.state.user? 
                 this.state.user.is_chef?  <ChefProfileInner user={this.state.user}/> : <ProfileInner user={this.state.user}/> 

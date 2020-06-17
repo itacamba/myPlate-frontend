@@ -29,7 +29,7 @@ class CuisinesContainer extends Component {
                         <h3>Asian</h3>
                     </div>
                 </div>
-                <button className="ui red button"> Explore Cuisines</button>
+                <button className="ui red button" > Explore Cuisines</button>
             </div>
         );
     }
